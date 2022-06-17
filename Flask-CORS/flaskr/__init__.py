@@ -37,7 +37,7 @@ def create_app(test_config=None):
             }
         )
 
-    @app.route("/plants/<int:plant_id>")
+    @app.route("/plants/<int:plant_id>", methods=['GET'])
     def get_specific_plant(plant_id):
         plant = Plant.query.filter(Plant.id == plant_id).one_or_none()
         if plant is None:
